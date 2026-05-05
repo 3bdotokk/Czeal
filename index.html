@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Czeal - مولد الصور بالذكاء الاصطناعي</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 800px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .prompt-box {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            resize: vertical;
+            font-family: inherit;
+        }
+
+        .prompt-box:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 18px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            margin-bottom: 20px;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .loading {
+            display: none;
+            margin: 20px 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .result {
+            margin-top: 30px;
+        }
+
+        .result img {
+            max-width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        .error {
+            color: red;
+            margin-top: 20px;
+        }
+
+        footer {
+            margin-top: 30px;
+            color: #999;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Czeal AI</h1>
+        <p class="subtitle">ولّد صوراً بالذكاء الاصطناعي – مجاناً وبسرعة</p>
+
+        <textarea id="prompt" class="prompt-box" rows="3" placeholder="اكتب وصف الصورة التي تريد توليدها... مثال: قطة برتقالية ترتدي نظارة شمسية على الشاطئ"></textarea>
+
+        <button id="generateBtn" onclick="generateImage()">✨ ولّد الصورة</button>
+
+        <div id="loading" class="loading">
+            ⏳ جاري توليد الصورة... قد يستغرق 5-10 ثوانٍ
+        </div>
+
+        <div id="result" class="result"></div>
+
+        <footer>
+            Czeal.com – توليد الصور بالذكاء الاصطناعي مجاناً
+        </footer>
+    </div>
+
+    <!-- كود Adsterra – استبدل YOUR_ADSTERRA_ID بالمعرف الخاص بك -->
+    <!-- <script data-cfasync="false" type='text/javascript' src='//YOUR_ADSTERRA_ID'></script> -->
+
+    <script>
+        async function generateImage() {
+            const prompt = document.getElementById('prompt').value;
+            const generateBtn = document.getElementById('generateBtn');
+            const loadingDiv = document.getElementById('loading');
+            const resultDiv = document.getElementById('result');
+
+            if (!prompt.trim()) {
+                alert('الرجاء كتابة وصف للصورة');
+                return;
+            }
+
+            // تعطيل الزر وإظهار التحميل
+            generateBtn.disabled = true;
+            loadingDiv.style.display = 'block';
+            resultDiv.innerHTML = '';
+
+            try {
+                // استخدام خدمة Pollinations.AI المجانية (بدون مفتاح API)
+                const imageUrl = `https://image.pollinations.ai/prompt/${encodeURIComponent(prompt)}?width=1024&height=1024&nologo=true`;
+                
+                // عرض الصورة مباشرة
+                resultDiv.innerHTML = `<img src="${imageUrl}" alt="الصورة المولوّدة" onerror="this.onerror=null; this.src='${imageUrl}&seed=${Date.now()}'">`;
+                
+                // إضافة إعلان Adsterra بعد توليد الصورة (اختياري)
+                // يمكنك تفعيل هذا السطر إذا أردت ظهور إعلان بعد كل توليد
+                // if (typeof Adsterra !== 'undefined') { Adsterra.show(); }
+                
+            } catch (error) {
+                resultDiv.innerHTML = `<div class="error">❌ حدث خطأ: ${error.message}</div>`;
+            } finally {
+                // إعادة تمكين الزر وإخفاء التحميل
+                generateBtn.disabled = false;
+                loadingDiv.style.display = 'none';
+            }
+        }
+
+        // إضافة خاصية الضغط على Enter للتوليد
+        document.getElementById('prompt').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                generateImage();
+            }
+        });
+    </script>
+</body>
+</html>
