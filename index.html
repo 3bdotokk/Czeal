@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Czeal - مولد الصور بالذكاء الاصطناعي</title>
+    <title>Czeal - مولد الصور بالذكاء الاصطناعي FLUX.2</title>
     <style>
         * {
             margin: 0;
@@ -15,45 +15,51 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             padding: 20px;
         }
 
         .container {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 25px;
             padding: 40px;
-            max-width: 800px;
-            width: 100%;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            text-align: center;
         }
 
         h1 {
+            text-align: center;
             color: #333;
             margin-bottom: 10px;
             font-size: 2.5em;
         }
 
         .subtitle {
+            text-align: center;
             color: #666;
             margin-bottom: 30px;
         }
 
-        .prompt-box {
-            width: 100%;
-            padding: 15px;
-            font-size: 16px;
-            border: 2px solid #ddd;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            resize: vertical;
-            font-family: inherit;
+        .generator-box {
+            background: #f8f9fa;
+            border-radius: 20px;
+            padding: 25px;
+            margin: 20px 0;
         }
 
-        .prompt-box:focus {
+        textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            font-size: 16px;
+            font-family: inherit;
+            resize: vertical;
+            margin-bottom: 20px;
+            transition: border-color 0.3s;
+        }
+
+        textarea:focus {
             outline: none;
             border-color: #667eea;
         }
@@ -66,21 +72,22 @@
             font-size: 18px;
             border-radius: 50px;
             cursor: pointer;
-            transition: transform 0.2s;
-            margin-bottom: 20px;
+            transition: transform 0.2s, opacity 0.2s;
+            width: 100%;
         }
 
         button:hover {
-            transform: scale(1.05);
+            transform: scale(1.02);
         }
 
         button:disabled {
-            opacity: 0.5;
+            opacity: 0.6;
             cursor: not-allowed;
         }
 
         .loading {
             display: none;
+            text-align: center;
             margin: 20px 0;
             color: #667eea;
             font-weight: bold;
@@ -88,6 +95,7 @@
 
         .result {
             margin-top: 30px;
+            text-align: center;
         }
 
         .result img {
@@ -97,48 +105,58 @@
         }
 
         .error {
-            color: red;
-            margin-top: 20px;
+            color: #e74c3c;
+            text-align: center;
+            padding: 15px;
+            background: #fdecea;
+            border-radius: 10px;
         }
 
         footer {
+            text-align: center;
             margin-top: 30px;
             color: #999;
             font-size: 12px;
         }
     </style>
+    <!-- مكتبة Puter.js -->
+    <script src="https://js.puter.com/v2/"></script>
 </head>
 <body>
     <div class="container">
         <h1>🎨 Czeal AI</h1>
-        <p class="subtitle">ولّد صوراً بالذكاء الاصطناعي – مجاناً وبسرعة</p>
+        <p class="subtitle">توليد صور بالذكاء الاصطناعي - مجاناً وبسرعة فائقة</p>
 
-        <textarea id="prompt" class="prompt-box" rows="3" placeholder="اكتب وصف الصورة التي تريد توليدها... مثال: قطة برتقالية ترتدي نظارة شمسية على الشاطئ"></textarea>
-
-        <button id="generateBtn" onclick="generateImage()">✨ ولّد الصورة</button>
-
-        <div id="loading" class="loading">
-            ⏳ جاري توليد الصورة... قد يستغرق 5-10 ثوانٍ
+        <div class="generator-box">
+            <h2 style="margin-bottom: 15px;">✨ مولد الصور FLUX.2</h2>
+            <p style="margin-bottom: 20px; color: #555;">اكتب وصفاً باللغة الإنجليزية للحصول على أفضل النتائج</p>
+            
+            <textarea id="prompt" rows="3" placeholder="Example: A majestic lion sitting on a throne in a futuristic city, neon lights, 4k, cinematic lighting"></textarea>
+            
+            <button id="generateBtn">🚀 توليد الصورة</button>
+            
+            <div id="loading" class="loading">
+                ⏳ جاري توليد الصورة... قد يستغرق 5-10 ثوانٍ
+            </div>
+            
+            <div id="result" class="result"></div>
         </div>
 
-        <div id="result" class="result"></div>
-
         <footer>
-            Czeal.com – توليد الصور بالذكاء الاصطناعي مجاناً
+            Czeal.com - توليد الصور بالذكاء الاصطناعي FLUX.2
         </footer>
     </div>
 
-    <!-- كود Adsterra – استبدل YOUR_ADSTERRA_ID بالمعرف الخاص بك -->
-    <!-- <script data-cfasync="false" type='text/javascript' src='//YOUR_ADSTERRA_ID'></script> -->
-
     <script>
-        async function generateImage() {
-            const prompt = document.getElementById('prompt').value;
-            const generateBtn = document.getElementById('generateBtn');
-            const loadingDiv = document.getElementById('loading');
-            const resultDiv = document.getElementById('result');
+        const generateBtn = document.getElementById('generateBtn');
+        const promptInput = document.getElementById('prompt');
+        const loadingDiv = document.getElementById('loading');
+        const resultDiv = document.getElementById('result');
 
-            if (!prompt.trim()) {
+        generateBtn.addEventListener('click', async function() {
+            const prompt = promptInput.value.trim();
+            
+            if (!prompt) {
                 alert('الرجاء كتابة وصف للصورة');
                 return;
             }
@@ -149,44 +167,32 @@
             resultDiv.innerHTML = '';
 
             try {
-                // استخدام خدمة Pollinations.AI المجانية (بدون مفتاح API)
-                const imageUrl = `https://image.pollinations.ai/prompt/${encodeURIComponent(prompt)}?width=1024&height=1024&nologo=true`;
+                // استدعاء نموذج FLUX.2 عبر Puter.js
+                const images = await puter.ai.txt2img(prompt, 'black-forest-labs/flux.2-dev');
                 
-                // عرض الصورة مباشرة
-                resultDiv.innerHTML = `<img src="${imageUrl}" alt="الصورة المولوّدة" onerror="this.onerror=null; this.src='${imageUrl}&seed=${Date.now()}'">`;
-                
-                // إضافة إعلان Adsterra بعد توليد الصورة (اختياري)
-                // يمكنك تفعيل هذا السطر إذا أردت ظهور إعلان بعد كل توليد
-                // if (typeof Adsterra !== 'undefined') { Adsterra.show(); }
-                
+                if (images && images.length > 0) {
+                    // عرض الصورة الأولى
+                    resultDiv.innerHTML = `<img src="${images[0].url}" alt="الصورة المولوّدة">`;
+                } else {
+                    throw new Error('لم يتم استلام أي صورة');
+                }
             } catch (error) {
-                resultDiv.innerHTML = `<div class="error">❌ حدث خطأ: ${error.message}</div>`;
+                console.error('خطأ:', error);
+                resultDiv.innerHTML = `<div class="error">❌ حدث خطأ: ${error.message || 'فشل توليد الصورة. حاول مرة أخرى'}</div>`;
             } finally {
                 // إعادة تمكين الزر وإخفاء التحميل
                 generateBtn.disabled = false;
                 loadingDiv.style.display = 'none';
             }
-        }
+        });
 
-        // إضافة خاصية الضغط على Enter للتوليد
-        document.getElementById('prompt').addEventListener('keypress', function(e) {
+        // توليد بالضغط على Enter
+        promptInput.addEventListener('keypress', function(e) {
             if (e.key === 'Enter' && !e.shiftKey) {
                 e.preventDefault();
-                generateImage();
+                generateBtn.click();
             }
         });
     </script>
-    <!-- مولد الصور FLUX.2 الجديد -->
-<div style="margin-top: 30px; padding: 15px; background: #f0f0f0; border-radius: 10px; text-align: center;">
-    <h2>✨ مولد الصور بالذكاء الاصطناعي FLUX.2</h2>
-    <p>أدخل وصفاً باللغة الإنجليزية (مثل: "A cat wearing sunglasses on the beach")</p>
-    <iframe
-        src="https://black-forest-labs-flux-2-dev.hf.space"
-        frameborder="0"
-        width="100%"
-        height="500"
-        style="border-radius: 8px;">
-    </iframe>
-</div>
 </body>
 </html>
