@@ -1,198 +1,40 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Czeal - مولد الصور بالذكاء الاصطناعي FLUX.2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>CZEAL | منصة المونديال الذكية</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 25px;
-            padding: 40px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-        }
-
-        h1 {
-            text-align: center;
-            color: #333;
-            margin-bottom: 10px;
-            font-size: 2.5em;
-        }
-
-        .subtitle {
-            text-align: center;
-            color: #666;
-            margin-bottom: 30px;
-        }
-
-        .generator-box {
-            background: #f8f9fa;
-            border-radius: 20px;
-            padding: 25px;
-            margin: 20px 0;
-        }
-
-        textarea {
-            width: 100%;
-            padding: 15px;
-            border: 2px solid #e0e0e0;
-            border-radius: 15px;
-            font-size: 16px;
-            font-family: inherit;
-            resize: vertical;
-            margin-bottom: 20px;
-            transition: border-color 0.3s;
-        }
-
-        textarea:focus {
-            outline: none;
-            border-color: #667eea;
-        }
-
-        button {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            padding: 15px 40px;
-            font-size: 18px;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: transform 0.2s, opacity 0.2s;
-            width: 100%;
-        }
-
-        button:hover {
-            transform: scale(1.02);
-        }
-
-        button:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
-
-        .loading {
-            display: none;
-            text-align: center;
-            margin: 20px 0;
-            color: #667eea;
-            font-weight: bold;
-        }
-
-        .result {
-            margin-top: 30px;
-            text-align: center;
-        }
-
-        .result img {
-            max-width: 100%;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-        }
-
-        .error {
-            color: #e74c3c;
-            text-align: center;
-            padding: 15px;
-            background: #fdecea;
-            border-radius: 10px;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 30px;
-            color: #999;
-            font-size: 12px;
-        }
+        :root { --bg-color: #0a0a0a; --primary-teal: #008080; --text-muted: #888; }
+        body { background-color: var(--bg-color); color: white; font-family: 'Cairo', sans-serif; margin: 0; overflow-x: hidden; }
+        .site-wrapper { width: 100%; max-width: 600px; margin: 0 auto; padding: 20px; }
+        .site-header { border-bottom: 3px solid var(--primary-teal); padding-bottom: 10px; margin-bottom: 30px; }
+        .brand { font-weight: 900; font-size: 1.8rem; }
+        .feed-item { display: flex; gap: 15px; padding: 15px 0; border-bottom: 1px solid #222; align-items: center; }
+        .feed-content { flex: 1; }
+        .feed-title { font-size: 1.1rem; font-weight: 700; line-height: 1.3; }
+        .feed-image { width: 80px; height: 80px; border-radius: 8px; object-fit: cover; border: 1px solid var(--primary-teal); }
+        .ai-tag { color: var(--primary-teal); font-size: 0.7rem; font-weight: bold; text-transform: uppercase; }
     </style>
-    <!-- مكتبة Puter.js -->
-    <script src="https://js.puter.com/v2/"></script>
 </head>
 <body>
-    <div class="container">
-        <h1>🎨 Czeal AI</h1>
-        <p class="subtitle">توليد صور بالذكاء الاصطناعي - مجاناً وبسرعة فائقة</p>
+    <div class="site-wrapper">
+        <header class="site-header">
+            <div class="brand">CZEAL<span style="color:var(--primary-teal)">.COM</span></div>
+        </header>
 
-        <div class="generator-box">
-            <h2 style="margin-bottom: 15px;">✨ مولد الصور FLUX.2</h2>
-            <p style="margin-bottom: 20px; color: #555;">اكتب وصفاً باللغة الإنجليزية للحصول على أفضل النتائج</p>
-            
-            <textarea id="prompt" rows="3" placeholder="Example: A majestic lion sitting on a throne in a futuristic city, neon lights, 4k, cinematic lighting"></textarea>
-            
-            <button id="generateBtn">🚀 توليد الصورة</button>
-            
-            <div id="loading" class="loading">
-                ⏳ جاري توليد الصورة... قد يستغرق 5-10 ثوانٍ
+        <div id="articles-feed">
+            <div class="feed-item">
+                <div class="feed-content">
+                    <span class="ai-tag">تحليل ذكي</span>
+                    <div class="feed-title">مرحباً بك في Czeal! جاري إعداد أول تقرير لمونديال 2046 بالذكاء الاصطناعي...</div>
+                </div>
+                <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=200" class="feed-image">
             </div>
-            
-            <div id="result" class="result"></div>
-        </div>
 
-        <footer>
-            Czeal.com - توليد الصور بالذكاء الاصطناعي FLUX.2
-        </footer>
+            </div>
     </div>
-
-    <script>
-        const generateBtn = document.getElementById('generateBtn');
-        const promptInput = document.getElementById('prompt');
-        const loadingDiv = document.getElementById('loading');
-        const resultDiv = document.getElementById('result');
-
-        generateBtn.addEventListener('click', async function() {
-            const prompt = promptInput.value.trim();
-            
-            if (!prompt) {
-                alert('الرجاء كتابة وصف للصورة');
-                return;
-            }
-
-            // تعطيل الزر وإظهار التحميل
-            generateBtn.disabled = true;
-            loadingDiv.style.display = 'block';
-            resultDiv.innerHTML = '';
-
-            try {
-                // استدعاء نموذج FLUX.2 عبر Puter.js
-                const images = await puter.ai.txt2img(prompt, 'black-forest-labs/flux.2-dev');
-                
-                if (images && images.length > 0) {
-                    // عرض الصورة الأولى
-                    resultDiv.innerHTML = `<img src="${images[0].url}" alt="الصورة المولوّدة">`;
-                } else {
-                    throw new Error('لم يتم استلام أي صورة');
-                }
-            } catch (error) {
-                console.error('خطأ:', error);
-                resultDiv.innerHTML = `<div class="error">❌ حدث خطأ: ${error.message || 'فشل توليد الصورة. حاول مرة أخرى'}</div>`;
-            } finally {
-                // إعادة تمكين الزر وإخفاء التحميل
-                generateBtn.disabled = false;
-                loadingDiv.style.display = 'none';
-            }
-        });
-
-        // توليد بالضغط على Enter
-        promptInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter' && !e.shiftKey) {
-                e.preventDefault();
-                generateBtn.click();
-            }
-        });
-    </script>
 </body>
 </html>
