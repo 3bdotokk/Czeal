@@ -1,20 +1,22 @@
 name: Czeal AI Auto Publisher
 on:
   schedule:
-    - cron: '0 0 * * *' # يعمل تلقائياً كل يوم الساعة 12 منتصف الليل
-  workflow_dispatch: # يسمح لك بتشغيله يدوياً لتجربته الآن
+    - cron: '0 0 * * *'
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # هذا السطر هو الذي سيحل مشكلة الفشل في النشر
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.9'
+          python-version: '3.11'
 
       - name: Install dependencies
         run: pip install google-generativeai
@@ -22,13 +24,12 @@ jobs:
       - name: Run AI Generator
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: |
-          python .github/scripts/generate.py
+        run: python .github/scripts/generate.py
 
       - name: Commit changes
         run: |
-          git config --global user.name 'Czeal Bot'
+          git config --global user.name 'Czeal-Bot'
           git config --global user.email 'bot@czeal.com'
           git add index.html
-          git commit -m "🤖 تم تحديث الخبر اليومي بواسطة AI" || exit 0
+          git commit -m "🤖 خبر جديد بواسطة AI" || exit 0
           git push
