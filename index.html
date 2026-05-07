@@ -3,45 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>CZEAL | رادار توقعات مونديال 2026</title>
+    <title>CZEAL | رادار مونديال 2026</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root { --bg: #050505; --card: #121212; --teal: #008080; --text: #ffffff; --dim: #a0a0a0; }
-        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        body { background-color: var(--bg); color: var(--text); font-family: 'Cairo', sans-serif; margin: 0; padding: 0; overflow-x: hidden; touch-action: pan-y; }
+        body { background-color: var(--bg); color: var(--text); font-family: 'Cairo', sans-serif; margin: 0; padding: 0; overflow-x: hidden; }
         header { background: rgba(10, 10, 10, 0.95); padding: 20px; text-align: center; border-bottom: 2px solid var(--teal); position: sticky; top: 0; z-index: 100; }
-        .logo { font-size: 22px; font-weight: 900; letter-spacing: 1px; }
+        .logo { font-size: 22px; font-weight: 900; }
         .logo span { color: var(--teal); }
         .container { width: 100%; max-width: 600px; margin: 0 auto; padding: 15px; }
-
-        .interaction-box {
-            background: linear-gradient(145deg, #1a1a1a, #0a0a0a);
-            border-radius: 15px; padding: 20px; margin-bottom: 30px;
-            border: 1px solid var(--teal); text-align: center;
-        }
-        .interaction-box h3 { font-size: 16px; margin-bottom: 15px; color: var(--teal); }
-        .interaction-box input {
-            width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #333;
-            background: #000; color: #fff; text-align: center; margin-bottom: 10px; font-family: 'Cairo';
-        }
-        .interaction-box button { background: var(--teal); color: white; border: none; padding: 10px 25px; border-radius: 8px; font-weight: bold; cursor: pointer; width: 100%; transition: 0.3s; }
-        #ai-response { margin-top: 15px; padding: 10px; font-size: 14px; color: var(--teal); display: none; border-top: 1px inset #222; }
-
+        .interaction-box { background: #1a1a1a; border-radius: 15px; padding: 20px; margin-bottom: 30px; border: 1px solid var(--teal); text-align: center; }
+        .interaction-box input { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #333; background: #000; color: #fff; margin-bottom: 10px; font-family: 'Cairo'; }
+        .interaction-box button { background: var(--teal); color: white; border: none; padding: 10px 25px; border-radius: 8px; font-weight: bold; width: 100%; }
+        #ai-response { margin-top: 15px; padding: 10px; font-size: 14px; color: var(--teal); display: none; }
         .post-card { background: var(--card); border-radius: 12px; margin-bottom: 20px; border: 1px solid #222; overflow: hidden; }
         .post-image { width: 100%; height: 200px; object-fit: cover; border-bottom: 3px solid var(--teal); }
         .post-content { padding: 15px; }
-        .post-meta { color: var(--teal); font-size: 11px; font-weight: bold; }
-        .post-title { font-size: 18px; font-weight: 700; margin: 8px 0; }
+        .post-meta { color: var(--teal); font-size: 11px; }
+        .post-title { font-size: 18px; margin: 8px 0; }
         .post-excerpt { color: var(--dim); font-size: 13px; line-height: 1.5; }
-        footer { text-align: center; padding: 40px; color: #444; font-size: 12px; border-top: 1px solid #111; margin-top: 20px; }
+        footer { text-align: center; padding: 40px; color: #444; font-size: 12px; }
     </style>
 </head>
 <body>
-
-<header>
-    <div class="logo">CZEAL<span>.AI</span></div>
-</header>
-
+<header><div class="logo">CZEAL<span>.AI</span></div></header>
 <div class="container">
     <div class="interaction-box">
         <h3>🔮 محلل توقعات مونديال 2026</h3>
@@ -49,33 +34,26 @@
         <button onclick="analyzePrediction()">حلل فرص الفوز</button>
         <div id="ai-response"></div>
     </div>
-
     <hr style="border: 0; border-top: 1px solid #222; margin-bottom: 30px;">
 
     <article class="post-card">
         <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=800" class="post-image">
         <div class="post-content">
             <span class="post-meta">نظام CZEAL AI • نشط</span>
-            <h2 class="post-title">مرحباً بك في رادار مونديال 2026</h2>
-            <p class="post-excerpt">جاري تحليل بيانات المنتخبات العالمية. سيظهر أول تقرير مولد بالذكاء الاصطناعي هنا فور تشغيل المحرك.</p>
+            <h2 class="post-title">في انتظار التقرير الأول...</h2>
+            <p class="post-excerpt">جاري سحب أحدث بيانات المنتخبات لعام 2026 من الذكاء الاصطناعي.</p>
         </div>
     </article>
     </div>
-
-<footer>
-    &copy; 2026 CZEAL.AI | كافة الحقوق محفوظة
-</footer>
-
+<footer>&copy; 2026 CZEAL.AI | كافة الحقوق محفوظة</footer>
 <script>
     function analyzePrediction() {
         const input = document.getElementById('user-input').value;
         const responseBox = document.getElementById('ai-response');
-        if (!input) { responseBox.style.display = "block"; responseBox.innerHTML = "يرجى كتابة سؤالك أولاً.."; return; }
+        if (!input) return;
         responseBox.style.display = "block";
         responseBox.innerHTML = "جاري تحليل خوارزميات 2026... 🧬";
-        setTimeout(() => {
-            responseBox.innerHTML = "توقع CZEAL: بناءً على إحصائيات الفيفا الحالية، فرصة حدوث ذلك هي 68% مع احتمال تألق نجم صاعد جديد.";
-        }, 1500);
+        setTimeout(() => { responseBox.innerHTML = "توقع CZEAL: فرصة حدوث ذلك هي 68% بناءً على أداء اللاعبين الحالي."; }, 1500);
     }
 </script>
 </body>
