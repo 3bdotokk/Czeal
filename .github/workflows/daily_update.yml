@@ -1,7 +1,5 @@
 name: Czeal AI Auto Publisher
 on:
-  schedule:
-    - cron: '0 0 * * *'
   workflow_dispatch:
 
 jobs:
@@ -21,16 +19,15 @@ jobs:
       - name: Install dependencies
         run: pip install google-generativeai
 
-      - name: Run AI Generator
+      - name: Run Script
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        # السكربت هنا يبحث عن الملف في المجلد الرئيسي لتسهيل الأمر عليك
-        run: python generate.py || python .github/scripts/generate.py
+        run: python generate.py
 
-      - name: Commit changes
+      - name: Push Changes
         run: |
           git config --global user.name 'Czeal-Bot'
           git config --global user.email 'bot@czeal.com'
           git add index.html
-          git commit -m "🤖 تحديث آلي: خبر جديد" || exit 0
+          git commit -m "🤖 AI Update" || exit 0
           git push
