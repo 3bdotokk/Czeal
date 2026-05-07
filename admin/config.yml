@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: 3dotokk/Czeal  # هذا اسم مستودعك من الصورة
+  repo: 3dotokk/Czeal
   branch: main
 
 media_folder: "images"
