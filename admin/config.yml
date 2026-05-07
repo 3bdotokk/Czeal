@@ -1,15 +1,15 @@
 backend:
   name: github
-  repo: [USER_NAME]/[REPO_NAME] # استبدل هذه باسم مستخدمك واسم المستودع
+  repo: 3dotokk/Czeal  # هذا اسم مستودعك من الصورة
   branch: main
 
-media_folder: "images" # المجلد الذي ستحفظ فيه الصور
+media_folder: "images"
 public_folder: "/images"
 
 collections:
   - name: "blog"
     label: "الأخبار"
-    folder: "content/posts" # هنا سيتم حفظ المقالات كملفات نصية
+    folder: "content/posts"
     create: true
     fields:
       - {label: "العنوان", name: "title", widget: "string"}
