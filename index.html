@@ -21,6 +21,13 @@
     }
   </script>
 
+  <!-- Load Theme Before Render -->
+  <script>
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
+
   <!-- Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -66,18 +73,13 @@
 
       </nav>
 
-      <!-- Right Buttons -->
-      <div class="flex items-center gap-3">
-
-        <!-- Dark Mode -->
-        <button
-          onclick="toggleDarkMode()"
-          class="border border-gray-300 dark:border-zinc-700 px-4 py-2 rounded-2xl text-sm hover:bg-gray-100 dark:hover:bg-zinc-900 transition"
-        >
-          🌙
-        </button>
-
-      </div>
+      <!-- Dark Mode Button -->
+      <button
+        onclick="toggleDarkMode()"
+        class="border border-gray-300 dark:border-zinc-700 px-4 py-2 rounded-2xl text-sm hover:bg-gray-100 dark:hover:bg-zinc-900 transition"
+      >
+        🌙
+      </button>
 
     </div>
 
@@ -195,6 +197,31 @@
 
         </article>
 
+        <!-- Article 4 -->
+        <article class="bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-3xl p-8 hover:shadow-lg transition">
+
+          <div class="text-sm text-gray-500 dark:text-gray-400 mb-4">
+            AI Guides
+          </div>
+
+          <h4 class="text-2xl font-bold mb-4 leading-snug">
+            Best AI Writing Tools for Students
+          </h4>
+
+          <p class="text-gray-600 dark:text-gray-400 mb-6">
+            Discover the best AI writing tools
+            for essays, grammar, research, and productivity.
+          </p>
+
+          <a
+            href="best-ai-writing-tools-for-students.html"
+            class="text-sm font-medium hover:underline"
+          >
+            Read Article →
+          </a>
+
+        </article>
+
       </div>
 
     </div>
@@ -275,10 +302,6 @@
           ? 'dark'
           : 'light'
       );
-    }
-
-    if (localStorage.getItem('theme') === 'dark') {
-      document.documentElement.classList.add('dark');
     }
 
   </script>
