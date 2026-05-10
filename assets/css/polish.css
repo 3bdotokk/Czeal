@@ -1009,3 +1009,295 @@ a, button {
   .timer-running .timer-ring-progress { animation: none; }
   .article-card-thumb > span { transition: none; }
 }
+
+
+
+/* =========================================================
+   Tools Hub — additive styles
+   ========================================================= */
+
+/* Icon gradient variants for tool cards */
+.tool-icon-indigo  { background: linear-gradient(135deg, #6366f1, #8b5cf6); }
+.tool-icon-violet  { background: linear-gradient(135deg, #8b5cf6, #d946ef); }
+.tool-icon-fuchsia { background: linear-gradient(135deg, #d946ef, #ec4899); }
+.tool-icon-cyan    { background: linear-gradient(135deg, #06b6d4, #6366f1); }
+.tool-icon-emerald { background: linear-gradient(135deg, #10b981, #06b6d4); }
+.tool-icon-amber   { background: linear-gradient(135deg, #f59e0b, #ef4444); }
+
+/* Status badge (Live / Coming soon) */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .375rem;
+  font-size: .6875rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: .25rem .625rem;
+  border-radius: 9999px;
+  border: 1px solid transparent;
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  display: inline-block;
+}
+
+.status-live {
+  background: rgba(16, 185, 129, .1);
+  color: rgb(4 120 87);
+  border-color: rgba(16, 185, 129, .25);
+}
+.dark .status-live {
+  background: rgba(16, 185, 129, .15);
+  color: rgb(52 211 153);
+  border-color: rgba(16, 185, 129, .35);
+}
+.status-live .status-dot {
+  background: rgb(16 185 129);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, .2);
+  animation: live-pulse 1.8s var(--ease-smooth) infinite;
+}
+
+@keyframes live-pulse {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(16, 185, 129, .2); }
+  50%      { box-shadow: 0 0 0 5px rgba(16, 185, 129, .08); }
+}
+
+.status-soon {
+  background: rgba(113, 113, 122, .08);
+  color: rgb(82 82 91);
+  border-color: rgba(113, 113, 122, .2);
+}
+.dark .status-soon {
+  background: rgba(113, 113, 122, .15);
+  color: rgb(161 161 170);
+  border-color: rgba(113, 113, 122, .3);
+}
+.status-soon .status-dot {
+  background: rgb(161 161 170);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .status-live .status-dot { animation: none; }
+}
+
+/* Featured tool showcase (2-column premium card) */
+.featured-tool {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  border-radius: 28px;
+  overflow: hidden;
+  border: 1px solid rgb(229 231 235);
+  background: #fff;
+  transition:
+    transform .4s var(--ease-out),
+    border-color .4s var(--ease-out),
+    box-shadow .4s var(--ease-out);
+}
+
+.dark .featured-tool {
+  background: rgb(24 24 27);
+  border-color: rgb(39 39 42);
+}
+
+.featured-tool:hover {
+  transform: translateY(-4px);
+  border-color: rgba(139, 92, 246, .4);
+  box-shadow: var(--glow-light);
+}
+
+.dark .featured-tool:hover { box-shadow: var(--glow-dark); }
+
+@media (min-width: 900px) {
+  .featured-tool {
+    grid-template-columns: 1.05fr 1fr;
+  }
+}
+
+/* Left visual pane — decorative gradient + animated ring */
+.featured-tool-visual {
+  position: relative;
+  min-height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  isolation: isolate;
+  background: linear-gradient(135deg, #4338ca 0%, #8b5cf6 50%, #d946ef 100%);
+  color: #fff;
+}
+
+.featured-tool-visual::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, .35), transparent 45%),
+    radial-gradient(circle at 80% 80%, rgba(217, 70, 239, .5), transparent 50%);
+  filter: blur(30px);
+}
+
+.featured-tool-visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, .08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, .08) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
+}
+
+.featured-tool-ring {
+  width: 220px;
+  height: 220px;
+  animation: ring-rotate 18s linear infinite;
+  filter: drop-shadow(0 0 24px rgba(255, 255, 255, .35));
+}
+
+.featured-tool-time {
+  position: absolute;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -.02em;
+  font-size: 2.75rem;
+  color: #fff;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, .25);
+}
+
+@keyframes ring-rotate {
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .featured-tool-ring { animation: none; }
+}
+
+/* Right content pane */
+.featured-tool-body {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 900px) {
+  .featured-tool-body { padding: 2.75rem; gap: 1.25rem; }
+}
+
+.featured-tool-title {
+  font-size: 1.875rem;
+  font-weight: 800;
+  letter-spacing: -.02em;
+  line-height: 1.15;
+}
+
+@media (min-width: 900px) {
+  .featured-tool-title { font-size: 2.25rem; }
+}
+
+.featured-tool-desc {
+  color: rgb(75 85 99);
+  line-height: 1.65;
+}
+
+.dark .featured-tool-desc { color: rgb(161 161 170); }
+
+/* Feature list */
+.featured-tool-bullets {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: .625rem;
+  margin: .25rem 0;
+}
+
+@media (min-width: 480px) {
+  .featured-tool-bullets { grid-template-columns: 1fr 1fr; }
+}
+
+.featured-tool-bullets li {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: .9375rem;
+  color: rgb(55 65 81);
+}
+
+.dark .featured-tool-bullets li { color: rgb(212 212 216); }
+
+.featured-tool-bullets svg {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  color: var(--accent-2);
+}
+
+.featured-tool-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  margin-top: .5rem;
+}
+
+/* Tool-hub-specific card (extends .tool-card vertically) */
+.tool-card-v {
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.tool-card-v .tool-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+}
+
+.tool-card-v-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* CTA strip at bottom of tools hub */
+.cta-strip {
+  position: relative;
+  border-radius: 28px;
+  padding: 2.5rem;
+  overflow: hidden;
+  isolation: isolate;
+  background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #3b0764 100%);
+  color: #fff;
+  border: 1px solid rgba(139, 92, 246, .3);
+}
+
+.cta-strip::before {
+  content: "";
+  position: absolute;
+  inset: -30%;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(99, 102, 241, .35), transparent 45%),
+    radial-gradient(circle at 80% 80%, rgba(217, 70, 239, .35), transparent 45%);
+  filter: blur(40px);
+}
+
+@media (min-width: 768px) {
+  .cta-strip { padding: 3rem 3.5rem; }
+}
+
+/* Mark the active nav link */
+.nav-link.is-active {
+  color: var(--accent-2);
+}
+
+.nav-link.is-active::after {
+  transform: scaleX(1);
+}
