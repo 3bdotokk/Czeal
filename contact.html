@@ -6,14 +6,57 @@
 
   <title>Contact | Czeal</title>
 
+  <meta
+    name="description"
+    content="Contact Czeal for business inquiries, partnerships, suggestions, or questions about our AI tool guides for students."
+  />
+
+  <meta name="robots" content="index, follow" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://czeal.com/contact.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Czeal" />
+  <meta property="og:title" content="Contact | Czeal" />
+  <meta property="og:description" content="Contact Czeal for business inquiries, partnerships, suggestions, or questions about our AI tool guides for students." />
+  <meta property="og:url" content="https://czeal.com/contact.html" />
+  <meta property="og:image" content="https://czeal.com/og-image.png" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Contact | Czeal" />
+  <meta name="twitter:description" content="Contact Czeal for business inquiries, partnerships, suggestions, or questions about our AI tool guides for students." />
+  <meta name="twitter:image" content="https://czeal.com/og-image.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Dark Mode -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+    }
+  </script>
+
+  <!-- Load Theme -->
+  <script>
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
 </head>
 
-<body class="bg-white text-black">
+<body class="bg-white text-black dark:bg-black dark:text-white transition-colors duration-300">
 
   <main class="max-w-4xl mx-auto px-6 py-20">
 
-    <a href="index.html" class="text-sm text-gray-500">
+    <a href="index.html" class="text-sm text-gray-500 dark:text-gray-400 hover:underline">
       ← Back to Home
     </a>
 
@@ -21,12 +64,12 @@
       Contact
     </h1>
 
-    <p class="text-gray-700 leading-8 mb-6">
+    <p class="text-gray-700 dark:text-gray-300 leading-8 mb-6">
       For business inquiries, partnerships,
       or suggestions, feel free to contact us.
     </p>
 
-    <p class="text-gray-700 leading-8">
+    <p class="text-gray-700 dark:text-gray-300 leading-8">
       Email:
       info@czeal.com
     </p>

@@ -11,7 +11,45 @@
     content="Discover the best AI note taking apps for college students in 2026."
   />
 
+  <meta name="robots" content="index, follow" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://czeal.com/best-ai-note-taking-apps.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Czeal" />
+  <meta property="og:title" content="Best AI Note Taking Apps for College Students | Czeal" />
+  <meta property="og:description" content="Discover the best AI note taking apps for college students in 2026." />
+  <meta property="og:url" content="https://czeal.com/best-ai-note-taking-apps.html" />
+  <meta property="og:image" content="https://czeal.com/og-image.png" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Best AI Note Taking Apps for College Students | Czeal" />
+  <meta name="twitter:description" content="Discover the best AI note taking apps for college students in 2026." />
+  <meta name="twitter:image" content="https://czeal.com/og-image.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Dark Mode -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+    }
+  </script>
+
+  <!-- Load Theme -->
+  <script>
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,13 +64,48 @@
       font-family: 'Inter', sans-serif;
     }
   </style>
+
+  <!-- Structured Data: Article + Breadcrumb -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://czeal.com/best-ai-note-taking-apps.html"
+        },
+        "headline": "Best AI Note Taking Apps for College Students",
+        "description": "Discover the best AI note taking apps for college students in 2026.",
+        "image": "https://czeal.com/og-image.png",
+        "author": { "@type": "Organization", "name": "Czeal Editorial Team", "url": "https://czeal.com/about.html" },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Czeal",
+          "logo": { "@type": "ImageObject", "url": "https://czeal.com/og-image.png" }
+        },
+        "datePublished": "2026-01-20",
+        "dateModified": "2026-05-10",
+        "inLanguage": "en-US"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://czeal.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Best AI Note Taking Apps for College Students", "item": "https://czeal.com/best-ai-note-taking-apps.html" }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 
-<body class="bg-white text-black">
+<body class="bg-white text-black dark:bg-black dark:text-white transition-colors duration-300">
 
   <main class="max-w-4xl mx-auto px-6 py-20">
 
-    <a href="index.html" class="text-sm text-gray-500">
+    <a href="index.html" class="text-sm text-gray-500 dark:text-gray-400 hover:underline">
       ← Back to Home
     </a>
 
@@ -40,7 +113,7 @@
       Best AI Note Taking Apps for College Students
     </h1>
 
-    <p class="text-xl text-gray-600 mb-12 leading-relaxed">
+    <p class="text-xl text-gray-600 dark:text-gray-400 mb-12 leading-relaxed">
       AI note-taking apps help students organize lectures,
       summarize lessons, and improve productivity.
     </p>
@@ -51,7 +124,7 @@
         1. Notion AI
       </h2>
 
-      <p class="text-gray-700 leading-8">
+      <p class="text-gray-700 dark:text-gray-300 leading-8">
         Notion AI helps students organize notes,
         summarize lessons, and manage study plans.
       </p>
@@ -64,7 +137,7 @@
         2. Mem AI
       </h2>
 
-      <p class="text-gray-700 leading-8">
+      <p class="text-gray-700 dark:text-gray-300 leading-8">
         Mem AI automatically organizes notes and ideas
         using artificial intelligence.
       </p>
@@ -77,20 +150,20 @@
         3. Otter AI
       </h2>
 
-      <p class="text-gray-700 leading-8">
+      <p class="text-gray-700 dark:text-gray-300 leading-8">
         Otter AI converts lectures and voice recordings
         into searchable notes.
       </p>
 
     </section>
 
-    <section class="border-t border-gray-200 pt-12">
+    <section class="border-t border-gray-200 dark:border-zinc-800 pt-12">
 
       <h2 class="text-3xl font-bold mb-6">
         Final Thoughts
       </h2>
 
-      <p class="text-gray-700 leading-8">
+      <p class="text-gray-700 dark:text-gray-300 leading-8">
         AI note-taking tools can save students time
         and improve organization throughout college life.
       </p>

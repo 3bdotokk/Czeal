@@ -6,14 +6,57 @@
 
   <title>Privacy Policy | Czeal</title>
 
+  <meta
+    name="description"
+    content="Read the Czeal Privacy Policy — how we handle user information, analytics, cookies, and third-party services."
+  />
+
+  <meta name="robots" content="index, follow" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://czeal.com/privacy.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Czeal" />
+  <meta property="og:title" content="Privacy Policy | Czeal" />
+  <meta property="og:description" content="Read the Czeal Privacy Policy — how we handle user information, analytics, cookies, and third-party services." />
+  <meta property="og:url" content="https://czeal.com/privacy.html" />
+  <meta property="og:image" content="https://czeal.com/og-image.png" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Privacy Policy | Czeal" />
+  <meta name="twitter:description" content="Read the Czeal Privacy Policy — how we handle user information, analytics, cookies, and third-party services." />
+  <meta name="twitter:image" content="https://czeal.com/og-image.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Dark Mode -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+    }
+  </script>
+
+  <!-- Load Theme -->
+  <script>
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
 </head>
 
-<body class="bg-white text-black">
+<body class="bg-white text-black dark:bg-black dark:text-white transition-colors duration-300">
 
   <main class="max-w-4xl mx-auto px-6 py-20">
 
-    <a href="index.html" class="text-sm text-gray-500">
+    <a href="index.html" class="text-sm text-gray-500 dark:text-gray-400 hover:underline">
       ← Back to Home
     </a>
 
@@ -21,17 +64,17 @@
       Privacy Policy
     </h1>
 
-    <p class="text-gray-700 leading-8 mb-6">
+    <p class="text-gray-700 dark:text-gray-300 leading-8 mb-6">
       At Czeal, we respect your privacy and are committed
       to protecting your information.
     </p>
 
-    <p class="text-gray-700 leading-8 mb-6">
+    <p class="text-gray-700 dark:text-gray-300 leading-8 mb-6">
       We may use analytics and cookies to improve
       the user experience.
     </p>
 
-    <p class="text-gray-700 leading-8">
+    <p class="text-gray-700 dark:text-gray-300 leading-8">
       Third-party advertising services may use cookies
       to personalize ads in the future.
     </p>
