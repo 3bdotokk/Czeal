@@ -50,31 +50,36 @@
       document.documentElement.classList.add('dark');
     }
   </script>
+
+  <!-- Polish -->
+  <link rel="stylesheet" href="assets/css/polish.css">
 </head>
 
 <body class="bg-white text-black dark:bg-black dark:text-white transition-colors duration-300">
 
   <main class="max-w-4xl mx-auto px-6 py-20">
 
-    <a href="index.html" class="text-sm text-gray-500 dark:text-gray-400 hover:underline">
+    <a href="index.html" class="nav-link text-sm text-gray-500 dark:text-gray-400">
       ← Back to Home
     </a>
 
-    <h1 class="text-5xl font-bold mt-6 mb-10">
+    <h1 class="reveal text-5xl font-bold mt-6 mb-10">
       Contact
     </h1>
 
-    <p class="text-gray-700 dark:text-gray-300 leading-8 mb-6">
+    <p class="reveal text-gray-700 dark:text-gray-300 leading-8 mb-6" data-delay="1">
       For business inquiries, partnerships,
       or suggestions, feel free to contact us.
     </p>
 
-    <p class="text-gray-700 dark:text-gray-300 leading-8">
+    <p class="reveal text-gray-700 dark:text-gray-300 leading-8" data-delay="2">
       Email:
-      info@czeal.com
+      <a href="mailto:info@czeal.com" class="text-gradient font-semibold">info@czeal.com</a>
     </p>
 
   </main>
+
+  <script src="assets/js/reveal.js" defer></script>
 
 </body>
 </html>

@@ -50,37 +50,42 @@
       document.documentElement.classList.add('dark');
     }
   </script>
+
+  <!-- Polish -->
+  <link rel="stylesheet" href="assets/css/polish.css">
 </head>
 
 <body class="bg-white text-black dark:bg-black dark:text-white transition-colors duration-300">
 
   <main class="max-w-4xl mx-auto px-6 py-20">
 
-    <a href="index.html" class="text-sm text-gray-500 dark:text-gray-400 hover:underline">
+    <a href="index.html" class="nav-link text-sm text-gray-500 dark:text-gray-400">
       ← Back to Home
     </a>
 
-    <h1 class="text-5xl font-bold mt-6 mb-10">
-      About Czeal
+    <h1 class="reveal text-5xl font-bold mt-6 mb-10">
+      About <span class="text-gradient">Czeal</span>
     </h1>
 
-    <p class="text-gray-700 dark:text-gray-300 leading-8 mb-6">
+    <p class="reveal text-gray-700 dark:text-gray-300 leading-8 mb-6" data-delay="1">
       Czeal is a modern platform focused on discovering
       the best AI tools for students, creators,
       developers, and digital professionals.
     </p>
 
-    <p class="text-gray-700 dark:text-gray-300 leading-8 mb-6">
+    <p class="reveal text-gray-700 dark:text-gray-300 leading-8 mb-6" data-delay="2">
       Our goal is to help people work smarter using
       artificial intelligence and productivity tools.
     </p>
 
-    <p class="text-gray-700 dark:text-gray-300 leading-8">
+    <p class="reveal text-gray-700 dark:text-gray-300 leading-8" data-delay="3">
       We publish guides, reviews, and curated resources
       to simplify the fast-growing AI landscape.
     </p>
 
   </main>
+
+  <script src="assets/js/reveal.js" defer></script>
 
 </body>
 </html>

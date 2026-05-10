@@ -100,6 +100,8 @@
     ]
   }
   </script>
+  <!-- Polish -->
+  <link rel="stylesheet" href="assets/css/polish.css">
 </head>
 
 <body class="bg-white text-black dark:bg-black dark:text-white transition-colors duration-300">
@@ -114,9 +116,9 @@
       </a>
 
       <nav class="hidden md:flex gap-8 text-sm">
-        <a href="index.html" class="hover:opacity-70">Home</a>
-        <a href="about.html" class="hover:opacity-70">About</a>
-        <a href="contact.html" class="hover:opacity-70">Contact</a>
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
       </nav>
 
     </div>
@@ -128,16 +130,16 @@
 
     <a
       href="index.html"
-      class="text-sm text-gray-500 dark:text-gray-400 hover:underline"
+      class="nav-link text-sm text-gray-500 dark:text-gray-400"
     >
       ← Back to Home
     </a>
 
-    <h1 class="text-5xl font-bold leading-tight mt-6 mb-8">
+    <h1 class="reveal text-5xl font-bold leading-tight mt-6 mb-8">
       Best Free AI Tools for Students in 2026
     </h1>
 
-    <p class="text-xl text-gray-600 dark:text-gray-400 mb-12 leading-relaxed">
+    <p class="reveal text-xl text-gray-600 dark:text-gray-400 mb-12 leading-relaxed" data-delay="1">
       Artificial intelligence is transforming education.
       From note-taking and research to homework assistance
       and productivity, AI tools can help students save time
@@ -269,14 +271,16 @@
       </p>
 
       <div class="flex gap-6">
-        <a href="privacy.html">Privacy</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
+        <a href="privacy.html" class="nav-link">Privacy</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
       </div>
 
     </div>
 
   </footer>
 
+
+  <script src="assets/js/reveal.js" defer></script>
 </body>
 </html>
