@@ -12,7 +12,45 @@
     content="Discover the best AI tools for homework, studying, research, and productivity in 2026."
   />
 
+  <meta name="robots" content="index, follow" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://czeal.com/ai-tools-for-homework.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Czeal" />
+  <meta property="og:title" content="Top AI Tools for Homework and Studying | Czeal" />
+  <meta property="og:description" content="Discover the best AI tools for homework, studying, research, and productivity in 2026." />
+  <meta property="og:url" content="https://czeal.com/ai-tools-for-homework.html" />
+  <meta property="og:image" content="https://czeal.com/og-image.png" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Top AI Tools for Homework and Studying | Czeal" />
+  <meta name="twitter:description" content="Discover the best AI tools for homework, studying, research, and productivity in 2026." />
+  <meta name="twitter:image" content="https://czeal.com/og-image.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Dark Mode -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+    }
+  </script>
+
+  <!-- Load Theme -->
+  <script>
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,16 +65,51 @@
       font-family: 'Inter', sans-serif;
     }
   </style>
+
+  <!-- Structured Data: Article + Breadcrumb -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://czeal.com/ai-tools-for-homework.html"
+        },
+        "headline": "Top AI Tools for Homework and Studying",
+        "description": "Discover the best AI tools for homework, studying, research, and productivity in 2026.",
+        "image": "https://czeal.com/og-image.png",
+        "author": { "@type": "Organization", "name": "Czeal Editorial Team", "url": "https://czeal.com/about.html" },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Czeal",
+          "logo": { "@type": "ImageObject", "url": "https://czeal.com/og-image.png" }
+        },
+        "datePublished": "2026-01-25",
+        "dateModified": "2026-05-10",
+        "inLanguage": "en-US"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://czeal.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Top AI Tools for Homework and Studying", "item": "https://czeal.com/ai-tools-for-homework.html" }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 
-<body class="bg-white text-black">
+<body class="bg-white text-black dark:bg-black dark:text-white transition-colors duration-300">
 
   <!-- Article -->
   <main class="max-w-4xl mx-auto px-6 py-20">
 
     <a
       href="index.html"
-      class="text-sm text-gray-500 hover:text-black"
+      class="text-sm text-gray-500 dark:text-gray-400 hover:underline"
     >
       ← Back to Home
     </a>
@@ -45,7 +118,7 @@
       Top AI Tools for Homework and Studying
     </h1>
 
-    <p class="text-xl text-gray-600 mb-12 leading-relaxed">
+    <p class="text-xl text-gray-600 dark:text-gray-400 mb-12 leading-relaxed">
       Artificial intelligence is changing the way students
       study, complete homework, and manage academic tasks.
       The right AI tools can improve productivity,
@@ -59,14 +132,14 @@
         1. ChatGPT
       </h2>
 
-      <p class="text-gray-700 leading-8 mb-6">
+      <p class="text-gray-700 dark:text-gray-300 leading-8 mb-6">
         ChatGPT is one of the most versatile AI tools
         for students. It can explain concepts,
         summarize information, generate study ideas,
         and assist with writing assignments.
       </p>
 
-      <p class="text-gray-700 leading-8">
+      <p class="text-gray-700 dark:text-gray-300 leading-8">
         Students use ChatGPT to improve productivity
         and better understand difficult subjects.
       </p>
@@ -80,12 +153,12 @@
         2. Socratic
       </h2>
 
-      <p class="text-gray-700 leading-8 mb-6">
+      <p class="text-gray-700 dark:text-gray-300 leading-8 mb-6">
         Socratic by Google helps students solve
         homework problems using AI-powered explanations.
       </p>
 
-      <p class="text-gray-700 leading-8">
+      <p class="text-gray-700 dark:text-gray-300 leading-8">
         It is especially useful for math,
         science, and history subjects.
       </p>
@@ -99,12 +172,12 @@
         3. Khanmigo
       </h2>
 
-      <p class="text-gray-700 leading-8 mb-6">
+      <p class="text-gray-700 dark:text-gray-300 leading-8 mb-6">
         Khanmigo is an AI learning assistant developed
         by Khan Academy to help students learn interactively.
       </p>
 
-      <p class="text-gray-700 leading-8">
+      <p class="text-gray-700 dark:text-gray-300 leading-8">
         It encourages understanding instead of simply
         giving direct answers.
       </p>
@@ -118,12 +191,12 @@
         4. Grammarly
       </h2>
 
-      <p class="text-gray-700 leading-8 mb-6">
+      <p class="text-gray-700 dark:text-gray-300 leading-8 mb-6">
         Grammarly helps improve grammar,
         writing quality, and readability.
       </p>
 
-      <p class="text-gray-700 leading-8">
+      <p class="text-gray-700 dark:text-gray-300 leading-8">
         It is useful for essays, assignments,
         and research papers.
       </p>
@@ -137,12 +210,12 @@
         5. Wolfram Alpha
       </h2>
 
-      <p class="text-gray-700 leading-8 mb-6">
+      <p class="text-gray-700 dark:text-gray-300 leading-8 mb-6">
         Wolfram Alpha is a powerful computational engine
         for solving mathematical and scientific problems.
       </p>
 
-      <p class="text-gray-700 leading-8">
+      <p class="text-gray-700 dark:text-gray-300 leading-8">
         Many students use it for advanced calculations
         and academic research.
       </p>
@@ -150,18 +223,18 @@
     </section>
 
     <!-- Responsible Use -->
-    <section class="border-t border-gray-200 pt-12 mb-16">
+    <section class="border-t border-gray-200 dark:border-zinc-800 pt-12 mb-16">
 
       <h2 class="text-3xl font-bold mb-6">
         How to Use AI Responsibly
       </h2>
 
-      <p class="text-gray-700 leading-8 mb-6">
+      <p class="text-gray-700 dark:text-gray-300 leading-8 mb-6">
         AI tools should support learning,
         not replace real understanding.
       </p>
 
-      <p class="text-gray-700 leading-8">
+      <p class="text-gray-700 dark:text-gray-300 leading-8">
         Students should use AI to improve
         productivity, research, and comprehension
         while still developing critical thinking skills.
@@ -170,7 +243,7 @@
     </section>
 
     <!-- Related -->
-    <section class="border-t border-gray-200 pt-12">
+    <section class="border-t border-gray-200 dark:border-zinc-800 pt-12">
 
       <h2 class="text-3xl font-bold mb-6">
         Related Articles

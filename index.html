@@ -6,7 +6,7 @@
 
   <meta
     name="viewport"
-    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    content="width=device-width, initial-scale=1.0"
   />
 
   <title>Czeal - AI Tools for Students & Productivity</title>
@@ -17,6 +17,24 @@
   />
 
   <meta name="robots" content="index, follow" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://czeal.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Czeal" />
+  <meta property="og:title" content="Czeal - AI Tools for Students & Productivity" />
+  <meta property="og:description" content="Discover the best AI tools for students, studying, homework, writing, productivity, and smarter learning." />
+  <meta property="og:url" content="https://czeal.com/" />
+  <meta property="og:image" content="https://czeal.com/og-image.png" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Czeal - AI Tools for Students & Productivity" />
+  <meta name="twitter:description" content="Discover the best AI tools for students, studying, homework, writing, productivity, and smarter learning." />
+  <meta name="twitter:image" content="https://czeal.com/og-image.png" />
 
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -59,6 +77,32 @@
 
   </style>
 
+  <!-- Structured Data: Organization + WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://czeal.com/#organization",
+        "name": "Czeal",
+        "url": "https://czeal.com/",
+        "logo": "https://czeal.com/og-image.png",
+        "description": "Czeal is a platform focused on the best AI tools for students, creators, and digital professionals.",
+        "sameAs": []
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://czeal.com/#website",
+        "url": "https://czeal.com/",
+        "name": "Czeal",
+        "publisher": { "@id": "https://czeal.com/#organization" },
+        "inLanguage": "en-US"
+      }
+    ]
+  }
+  </script>
+
 </head>
 
 <body class="bg-white text-black dark:bg-black dark:text-white transition-colors duration-300 overflow-x-hidden">
@@ -93,6 +137,7 @@
       <!-- Dark Mode -->
       <button
         onclick="toggleDarkMode()"
+        aria-label="Toggle dark mode"
         class="border border-gray-300 dark:border-zinc-700 px-4 py-2 rounded-2xl text-sm hover:bg-gray-100 dark:hover:bg-zinc-900 transition"
       >
         🌙
