@@ -81,10 +81,9 @@
   </script>
 
 
-  <!-- ============================================================
-       ANALYTICS — insertion point (disabled until IDs are ready).
-       See ANALYTICS.md in the repo root for setup instructions.
-       ============================================================ -->
+  <!-- Analytics -->
+  <script src="/assets/js/analytics.js" defer></script>
+  <script src="/assets/js/tracking.js" defer></script>
 
 </head>
 
@@ -458,6 +457,7 @@
         iconPause.style.display = '';
         btnLabel.textContent = 'Pause';
         state.rafId = requestAnimationFrame(tick);
+        if (typeof window.czTrack === 'function') window.czTrack('pomodoro_started', { mode: state.mode });
 
         // Prompt for notifications the first time a focus session starts
         if (state.mode === 'focus' && 'Notification' in window &&
@@ -474,9 +474,11 @@
         iconPlay.style.display = '';
         iconPause.style.display = 'none';
         btnLabel.textContent = 'Resume';
+        if (typeof window.czTrack === 'function') window.czTrack('pomodoro_paused', { mode: state.mode });
       }
 
       function reset() {
+        if (typeof window.czTrack === 'function') window.czTrack('pomodoro_reset', { mode: state.mode });
         setMode(state.mode);
       }
 

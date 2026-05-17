@@ -82,10 +82,9 @@
   }
   </script>
 
-  <!-- ============================================================
-       ANALYTICS — insertion point (disabled until IDs are ready).
-       See ANALYTICS.md in the repo root for setup instructions.
-       ============================================================ -->
+  <!-- Analytics -->
+  <script src="/assets/js/analytics.js" defer></script>
+  <script src="/assets/js/tracking.js" defer></script>
 
 </head>
 
@@ -531,6 +530,14 @@
         var gpa = totalCredits > 0 ? (totalPoints / totalCredits) : 0;
         // Cap at scale maximum (percentage-to-4.0 already capped per-row)
         gpa = Math.min(gpa, maxScale());
+
+        // Track GPA calculation (debounced — only fire once per meaningful change)
+        if (counted > 0 && typeof window.czTrack === 'function') {
+          clearTimeout(recalc._tid);
+          recalc._tid = setTimeout(function () {
+            window.czTrack('gpa_calculated', { scale: STATE.scale, courses: counted, gpa: gpa.toFixed(2) });
+          }, 1200);
+        }
 
         // Animate the number flip
         valueEl.classList.add('is-updating');
