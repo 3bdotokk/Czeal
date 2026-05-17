@@ -88,16 +88,17 @@
       { "@type": "ListItem", "position": 3, "name": "AI Prompt Generator" },
       { "@type": "ListItem", "position": 4, "name": "Study Planner" },
       { "@type": "ListItem", "position": 5, "name": "Flashcard Generator" },
-      { "@type": "ListItem", "position": 6, "name": "Focus Music Tool" }
+      { "@type": "ListItem", "position": 6, "name": "Focus Music Tool" },
+      { "@type": "ListItem", "position": 7, "name": "AI Notes" },
+      { "@type": "ListItem", "position": 8, "name": "Citation Generator" }
     ]
   }
   </script>
 
 
-  <!-- ============================================================
-       ANALYTICS — insertion point (disabled until IDs are ready).
-       See ANALYTICS.md in the repo root for setup instructions.
-       ============================================================ -->
+  <!-- Analytics -->
+  <script src="assets/js/analytics.js" defer></script>
+  <script src="assets/js/tracking.js" defer></script>
 
 </head>
 
@@ -397,6 +398,46 @@
             </div>
             <div class="mt-3">
               <span class="category-badge">Focus</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- AI Notes (soon) -->
+        <div class="tool-card tool-card-v is-coming-soon reveal" data-delay="4" aria-disabled="true">
+          <div class="tool-card-v-top">
+            <div class="tool-icon tool-icon-cyan" aria-hidden="true">📝</div>
+            <span class="status-badge status-soon">
+              <span class="status-dot" aria-hidden="true"></span>Soon
+            </span>
+          </div>
+          <div class="tool-card-body">
+            <div class="tool-card-title">AI Notes</div>
+            <div class="tool-card-desc">
+              Paste lecture content and get clean, structured notes with key
+              takeaways and summaries instantly.
+            </div>
+            <div class="mt-3">
+              <span class="category-badge">Productivity</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Citation Generator (soon) -->
+        <div class="tool-card tool-card-v is-coming-soon reveal" data-delay="5" aria-disabled="true">
+          <div class="tool-card-v-top">
+            <div class="tool-icon tool-icon-indigo" aria-hidden="true">📖</div>
+            <span class="status-badge status-soon">
+              <span class="status-dot" aria-hidden="true"></span>Soon
+            </span>
+          </div>
+          <div class="tool-card-body">
+            <div class="tool-card-title">Citation Generator</div>
+            <div class="tool-card-desc">
+              Generate APA, MLA, and Chicago citations from URLs, DOIs, or book
+              titles. Fast and accurate.
+            </div>
+            <div class="mt-3">
+              <span class="category-badge">Academic</span>
             </div>
           </div>
         </div>
